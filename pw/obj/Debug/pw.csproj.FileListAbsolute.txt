@@ -1,0 +1,11 @@
+C:\Users\mark\source\repos\pw\pw\bin\Debug\pw.exe.config
+C:\Users\mark\source\repos\pw\pw\bin\Debug\pw.exe
+C:\Users\mark\source\repos\pw\pw\bin\Debug\pw.pdb
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.csproj.AssemblyReference.cache
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.csproj.SuggestedBindingRedirects.cache
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.Properties.Resources.resources
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.csproj.GenerateResource.cache
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.csproj.CoreCompileInputs.cache
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.exe
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.pdb
+C:\Users\mark\source\repos\pw\pw\obj\Debug\pw.window.resources
