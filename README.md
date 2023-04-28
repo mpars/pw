@@ -1,2 +1,3 @@
 # pw
-Random password generator
+Random password generator written in C#
+
