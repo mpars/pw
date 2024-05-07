@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using System.IO;
 
 namespace pw
 {
@@ -19,8 +20,24 @@ namespace pw
         {
             InitializeComponent();
             
+            String wordLine = "";
             
-            String wordLine = Properties.Resources.words2;
+            if(Properties.Settings.Default.wordsFile)
+            {
+                try
+                {
+                    wordLine = File.ReadAllText(Properties.Settings.Default.wordsFilePath);
+                }catch
+                { 
+                
+                }
+                
+            }
+            else
+            {
+                wordLine = Properties.Resources.words2;
+            }
+           
             wordList = wordLine.Split('\n').ToList();
             String myWordLine = Properties.Resources.myWords;
             myWordList = myWordLine.Split('\n').ToList();
@@ -78,8 +95,27 @@ namespace pw
 
                 }
                 if (capitaliseCheckBox.Checked) {
-                    singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim());
-                }            
+
+                    if(randomCB.Checked) { 
+
+                    int wordPos = getRandom(singleWord.Length-1);
+                    char[] array = singleWord.ToCharArray();
+                    for (int j=0; j<singleWord.Length-1; j++)
+                    {
+                        if(j== wordPos) {
+                            array[j] = char.ToUpper(array[j]);
+                            
+                        }
+                    }
+
+                    singleWord = new string(array);
+                    }
+                    else 
+                    { singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim()); }
+                    //
+                }
+                
+
                 if (addSpecialCheckBox.Checked)
                 {
                     string pw = "1234567890!£$%*()_-}";
@@ -132,11 +168,51 @@ namespace pw
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            passwordTB.Text = "(c) Mark Parsons v0.0.2 BSD Licence";
+            passwordTB.Text = "(c) Mark Parsons v0.0.3 BSD Licence";
             addButton.Enabled = false;
         }
 
-       
+        private void myWordsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void capitaliseCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (capitaliseCheckBox.Checked)
+            {
+                randomCB.Enabled = true;
+            }
+            else
+            {
+                randomCB.Enabled = false;
+            }
+        }
+
+        private void wordsRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if(wordsRadio.Checked)
+            {
+                wordsPanel.Enabled = true;
+                randomPanel.Enabled = false;
+            }
+           
+        }
+
+        private void randomRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (randomRadio.Checked)
+            {
+                randomPanel.Enabled = true;
+                wordsPanel.Enabled = false;
+            }
+        }
+
+        private void editWordsBtn_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
     }
 
 }
