@@ -77,12 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,9 +85,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="window.resx">
       <DependentUpon>window.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +117,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lock.ico" />
+    <None Include="Resources\application_xp_terminal.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\bullet_add.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\emotion_question.png" />
+    <None Include="Resources\arrow_switch.png" />
+    <None Include="Resources\money_dollar.png" />
+    <None Include="Resources\arrow_refresh_small.png" />
+    <None Include="Resources\token_match_character.png" />
+    <None Include="Resources\text_uppercase.png" />
+    <None Include="Resources\set_password.png" />
+    <None Include="Resources\page_white_copy.png" />
+    <None Include="Resources\key_add.png" />
+    <None Include="Resources\key_go.png" />
     <None Include="Resources\myWords.txt" />
     <None Include="Resources\words2.txt" />
   </ItemGroup>

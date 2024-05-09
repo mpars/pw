@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.IO;
+using System.Drawing;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace pw
 {
@@ -14,37 +16,71 @@ namespace pw
         List<string> myWordList = new List<string>();
         //String[] wordList = new String[7776];
         Boolean useMyWord = false;
-      
+
+        String runningPasswords = "";
+        
 
         public window()
         {
             InitializeComponent();
-            
+
+
+
             String wordLine = "";
-            
-            if(Properties.Settings.Default.wordsFile)
+            String myWordLine = "";
+
+            if (Properties.Settings.Default.wordsFile)
             {
                 try
                 {
-                    wordLine = File.ReadAllText(Properties.Settings.Default.wordsFilePath);
-                }catch
-                { 
-                
+                    myWordLine = File.ReadAllText(Properties.Settings.Default.wordsFilePath);
                 }
-                
+                catch
+                {
+
+                }
+
+            }
+           
+                wordLine = Properties.Resources.words2;
+            
+
+            //wordList = wordLine.Split('\n').ToList();
+
+            wordList = wordsToList(wordLine);
+            myWordList = wordsToList(myWordLine);
+            //String myWordLine = Properties.Resources.myWords;
+            // myWordList = myWordLine.Split('\n').ToList();
+
+            // add mywordlist to wordlist
+            //wordList.AddRange(myWordList);
+            //wordList = wordLine.Split('\n');
+
+
+            // set up check boxes
+
+            if (Properties.Settings.Default.characters)
+            {
+                charactersRadio.Checked = true;
             }
             else
             {
-                wordLine = Properties.Resources.words2;
+                wordsRadio.Checked = true;
             }
-           
-            wordList = wordLine.Split('\n').ToList();
-            String myWordLine = Properties.Resources.myWords;
-            myWordList = myWordLine.Split('\n').ToList();
-            wordList.AddRange(myWordList);
-            //wordList = wordLine.Split('\n');
-      
 
+            addSpecialCheckBox.Checked = Properties.Settings.Default.special;
+            capitaliseCheckBox.Checked = Properties.Settings.Default.capitalise;
+            randomCB.Checked = Properties.Settings.Default.atRandom;
+            moreWordsCheckBox.Checked = Properties.Settings.Default.moreWords;
+            onlyTheseCheckBox.Checked = Properties.Settings.Default.onlyThese;
+            
+           
+
+        }
+
+        private List<string>  wordsToList(string words)
+        {
+            return words.Split('\n').ToList();
         }
 
         private void generateButton_Click(object sender, EventArgs e)
@@ -52,16 +88,17 @@ namespace pw
             addButton.Enabled = true;
             passwordTB.Text = "";
 
-            if (randomRadio.Checked)
-            { 
-                generateChars();          
+            if (charactersRadio.Checked)
+            {
+                generateChars();
             }
             else
             {
-                generateWords(3, myWordsCheckBox.Checked);
+                generateWords(3, moreWordsCheckBox.Checked);
             }
 
-
+            runningPasswords += "\n"+passwordTB.Text;
+            Console.WriteLine(runningPasswords);
         }
         private void generateChars()
         {
@@ -72,9 +109,9 @@ namespace pw
                 passwordTB.Text += c;
             }
         }
-       private void generateWords(int numWords, Boolean useMyWord)
+        private void generateWords(int numWords, Boolean useMyWord)
         {
-            
+
             int when = getRandom(numWords);
 
             Console.WriteLine(when);
@@ -82,43 +119,59 @@ namespace pw
             for (int i = 0; i < numWords; i++)
             {
                 String singleWord = "";
-                if (useMyWord && (when == i) && (myWordList.Count > 0))
+
+                if (useMyWord && onlyTheseCheckBox.Checked && (myWordList.Count > 0)) {
+
+                    singleWord = myWordList[getRandom(myWordList.Count)];
+
+                }
+                // insert myword in sequence
+                else if (useMyWord && (when == i) && (myWordList.Count > 0))
                 {
                     singleWord = myWordList[getRandom(myWordList.Count)];
                     useMyWord = false;
                     if (singleWord.Length == 0) { singleWord = wordList[getRandom(wordList.Count)]; }
                     Console.WriteLine(when + " " + i);
                 }
-                else 
+                else
                 {
                     singleWord = wordList[getRandom(wordList.Count)];
 
                 }
-                if (capitaliseCheckBox.Checked) {
 
-                    if(randomCB.Checked) { 
 
-                    int wordPos = getRandom(singleWord.Length-1);
-                    char[] array = singleWord.ToCharArray();
-                    for (int j=0; j<singleWord.Length-1; j++)
+
+
+                if (capitaliseCheckBox.Checked)
+                {
+
+                    if (randomCB.Checked)
                     {
-                        if(j== wordPos) {
-                            array[j] = char.ToUpper(array[j]);
-                            
-                        }
-                    }
 
-                    singleWord = new string(array);
+                        int wordPos = getRandom(singleWord.Length - 1);
+                        char[] array = singleWord.ToCharArray();
+                        for (int j = 0; j < singleWord.Length - 1; j++)
+                        {
+                            if (j == wordPos)
+                            {
+                                array[j] = char.ToUpper(array[j]);
+
+                            }
+                        }
+
+                        singleWord = new string(array);
                     }
-                    else 
-                    { singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim()); }
+                    else
+                    { 
+                        singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim()); 
+                    }
                     //
                 }
-                
+
 
                 if (addSpecialCheckBox.Checked)
                 {
-                    string pw = "1234567890!£$%*()_-}";
+                    string pw = "1234567890!£$%*()_-}{[]#'?";
                     char c = pw[getRandom(pw.Length)];
                     singleWord = singleWord.Trim() + c;
                 }
@@ -133,7 +186,7 @@ namespace pw
                 passwordTB.ForeColor = System.Drawing.Color.Lime;
             }
         }
-            
+
 
 
         public int getRandom(int maxNumber)
@@ -156,14 +209,15 @@ namespace pw
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if(randomRadio.Checked)
+            if (charactersRadio.Checked)
             {
                 generateChars();
             }
-            else 
-            { generateWords(1, false); 
+            else
+            {
+                generateWords(1, false);
             }
-            
+
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -182,37 +236,90 @@ namespace pw
             if (capitaliseCheckBox.Checked)
             {
                 randomCB.Enabled = true;
+                Properties.Settings.Default.capitalise = true;
+                Properties.Settings.Default.Save();
             }
             else
             {
                 randomCB.Enabled = false;
+                Properties.Settings.Default.capitalise = false;
+                Properties.Settings.Default.Save();
             }
         }
 
         private void wordsRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if(wordsRadio.Checked)
+            if (wordsRadio.Checked)
             {
                 wordsPanel.Enabled = true;
                 randomPanel.Enabled = false;
+                Properties.Settings.Default.characters = false;
+                Properties.Settings.Default.Save();
             }
-           
+
         }
 
         private void randomRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (randomRadio.Checked)
+            if (charactersRadio.Checked)
             {
                 randomPanel.Enabled = true;
                 wordsPanel.Enabled = false;
+                Properties.Settings.Default.characters = true;
+                Properties.Settings.Default.Save();
             }
         }
 
-        private void editWordsBtn_Click(object sender, EventArgs e)
+       
+
+        private void window_Load(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
+            passwordTB.Text = "(c) Mark Parsons v0.0.4 BSD Licence";
+        }
+
+        private void wordFileDialogBTN_Click(object sender, EventArgs e)
+        {
+            string filename = "";
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Text Files|*.txt";
+            DialogResult dr = ofd.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                filename = ofd.FileName;
+                Properties.Settings.Default.wordsFilePath = filename;
+                Properties.Settings.Default.wordsFile = true;
+                Properties.Settings.Default.Save();
+            }
+            Console.WriteLine(filename);
+
+            String myWordLine = "";
+            try
+            {
+                myWordLine = File.ReadAllText(Properties.Settings.Default.wordsFilePath);
+                myWordList = wordsToList(myWordLine);
+            }
+            catch { }
+        }
+
+        private void addSpecialCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (addSpecialCheckBox.Checked)
+            {
+                Properties.Settings.Default.special = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.special = false;
+                Properties.Settings.Default.Save();
+            }
+            
         }
     }
 
-}
+    }
+
+ 
+

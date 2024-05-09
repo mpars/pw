@@ -35,17 +35,17 @@
             this.pwCharsLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.copyButton = new System.Windows.Forms.Button();
-            this.randomRadio = new System.Windows.Forms.RadioButton();
+            this.charactersRadio = new System.Windows.Forms.RadioButton();
             this.wordsRadio = new System.Windows.Forms.RadioButton();
             this.addSpecialCheckBox = new System.Windows.Forms.CheckBox();
             this.capitaliseCheckBox = new System.Windows.Forms.CheckBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.aboutButton = new System.Windows.Forms.Button();
-            this.myWordsCheckBox = new System.Windows.Forms.CheckBox();
+            this.moreWordsCheckBox = new System.Windows.Forms.CheckBox();
             this.randomCB = new System.Windows.Forms.CheckBox();
             this.wordsPanel = new System.Windows.Forms.Panel();
+            this.onlyTheseCheckBox = new System.Windows.Forms.CheckBox();
+            this.wordFileDialogBTN = new System.Windows.Forms.Button();
             this.randomPanel = new System.Windows.Forms.Panel();
-            this.editWordsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.wordsPanel.SuspendLayout();
             this.randomPanel.SuspendLayout();
@@ -53,12 +53,15 @@
             // 
             // generateButton
             // 
+            this.generateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.generateButton.FlatAppearance.BorderSize = 0;
+            this.generateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generateButton.Location = new System.Drawing.Point(298, 67);
+            this.generateButton.Image = global::pw.Properties.Resources.arrow_refresh_small;
+            this.generateButton.Location = new System.Drawing.Point(376, 53);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(82, 23);
+            this.generateButton.Size = new System.Drawing.Size(42, 36);
             this.generateButton.TabIndex = 0;
-            this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
@@ -70,18 +73,18 @@
             this.passwordTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTB.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTB.ForeColor = System.Drawing.Color.Lime;
-            this.passwordTB.Location = new System.Drawing.Point(0, 98);
+            this.passwordTB.Location = new System.Drawing.Point(0, 95);
             this.passwordTB.Name = "passwordTB";
-            this.passwordTB.Size = new System.Drawing.Size(394, 30);
+            this.passwordTB.Size = new System.Drawing.Size(424, 30);
             this.passwordTB.TabIndex = 1;
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(83, 0);
+            this.trackBar1.Location = new System.Drawing.Point(83, -1);
             this.trackBar1.Maximum = 40;
             this.trackBar1.Minimum = 8;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(136, 45);
+            this.trackBar1.Size = new System.Drawing.Size(156, 45);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Value = 12;
@@ -91,7 +94,7 @@
             // 
             this.pwCharsLabel.AutoSize = true;
             this.pwCharsLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwCharsLabel.Location = new System.Drawing.Point(58, 2);
+            this.pwCharsLabel.Location = new System.Drawing.Point(53, 2);
             this.pwCharsLabel.Name = "pwCharsLabel";
             this.pwCharsLabel.Size = new System.Drawing.Size(19, 13);
             this.pwCharsLabel.TabIndex = 3;
@@ -101,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 2);
+            this.label1.Location = new System.Drawing.Point(8, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 4;
@@ -109,34 +112,36 @@
             // 
             // copyButton
             // 
+            this.copyButton.FlatAppearance.BorderSize = 0;
+            this.copyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copyButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyButton.Location = new System.Drawing.Point(298, 38);
+            this.copyButton.Image = global::pw.Properties.Resources.page_white_copy;
+            this.copyButton.Location = new System.Drawing.Point(375, 6);
             this.copyButton.Name = "copyButton";
-            this.copyButton.Size = new System.Drawing.Size(42, 23);
+            this.copyButton.Size = new System.Drawing.Size(43, 44);
             this.copyButton.TabIndex = 5;
-            this.copyButton.Text = "Copy";
             this.copyButton.UseVisualStyleBackColor = true;
             this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
             // 
-            // randomRadio
+            // charactersRadio
             // 
-            this.randomRadio.AutoSize = true;
-            this.randomRadio.Checked = true;
-            this.randomRadio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomRadio.Location = new System.Drawing.Point(12, 8);
-            this.randomRadio.Name = "randomRadio";
-            this.randomRadio.Size = new System.Drawing.Size(125, 17);
-            this.randomRadio.TabIndex = 6;
-            this.randomRadio.TabStop = true;
-            this.randomRadio.Text = "Random Characters";
-            this.randomRadio.UseVisualStyleBackColor = true;
-            this.randomRadio.CheckedChanged += new System.EventHandler(this.randomRadio_CheckedChanged);
+            this.charactersRadio.AutoSize = true;
+            this.charactersRadio.Checked = true;
+            this.charactersRadio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.charactersRadio.Location = new System.Drawing.Point(12, 11);
+            this.charactersRadio.Name = "charactersRadio";
+            this.charactersRadio.Size = new System.Drawing.Size(79, 17);
+            this.charactersRadio.TabIndex = 6;
+            this.charactersRadio.TabStop = true;
+            this.charactersRadio.Text = "Characters";
+            this.charactersRadio.UseVisualStyleBackColor = true;
+            this.charactersRadio.CheckedChanged += new System.EventHandler(this.randomRadio_CheckedChanged);
             // 
             // wordsRadio
             // 
             this.wordsRadio.AutoSize = true;
             this.wordsRadio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wordsRadio.Location = new System.Drawing.Point(13, 41);
+            this.wordsRadio.Location = new System.Drawing.Point(12, 42);
             this.wordsRadio.Name = "wordsRadio";
             this.wordsRadio.Size = new System.Drawing.Size(59, 17);
             this.wordsRadio.TabIndex = 7;
@@ -146,22 +151,26 @@
             // 
             // addSpecialCheckBox
             // 
+            this.addSpecialCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.addSpecialCheckBox.AutoSize = true;
+            this.addSpecialCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.Aqua;
             this.addSpecialCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSpecialCheckBox.Location = new System.Drawing.Point(11, 3);
             this.addSpecialCheckBox.Name = "addSpecialCheckBox";
-            this.addSpecialCheckBox.Size = new System.Drawing.Size(119, 17);
+            this.addSpecialCheckBox.Size = new System.Drawing.Size(110, 23);
             this.addSpecialCheckBox.TabIndex = 8;
             this.addSpecialCheckBox.Text = "Special Characters";
             this.addSpecialCheckBox.UseVisualStyleBackColor = true;
+            this.addSpecialCheckBox.CheckedChanged += new System.EventHandler(this.addSpecialCheckBox_CheckedChanged);
             // 
             // capitaliseCheckBox
             // 
+            this.capitaliseCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.capitaliseCheckBox.AutoSize = true;
             this.capitaliseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.capitaliseCheckBox.Location = new System.Drawing.Point(11, 26);
+            this.capitaliseCheckBox.Location = new System.Drawing.Point(123, 3);
             this.capitaliseCheckBox.Name = "capitaliseCheckBox";
-            this.capitaliseCheckBox.Size = new System.Drawing.Size(76, 17);
+            this.capitaliseCheckBox.Size = new System.Drawing.Size(67, 23);
             this.capitaliseCheckBox.TabIndex = 9;
             this.capitaliseCheckBox.Text = "Capitalise";
             this.capitaliseCheckBox.UseVisualStyleBackColor = true;
@@ -170,101 +179,105 @@
             // addButton
             // 
             this.addButton.Enabled = false;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(344, 38);
+            this.addButton.Image = global::pw.Properties.Resources.key_add;
+            this.addButton.Location = new System.Drawing.Point(12, 67);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(36, 23);
+            this.addButton.Size = new System.Drawing.Size(12, 17);
             this.addButton.TabIndex = 10;
-            this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Visible = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // aboutButton
+            // moreWordsCheckBox
             // 
-            this.aboutButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.aboutButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutButton.Location = new System.Drawing.Point(356, 8);
-            this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(24, 23);
-            this.aboutButton.TabIndex = 11;
-            this.aboutButton.Text = "?";
-            this.aboutButton.UseVisualStyleBackColor = true;
-            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
-            // 
-            // myWordsCheckBox
-            // 
-            this.myWordsCheckBox.AutoSize = true;
-            this.myWordsCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myWordsCheckBox.Location = new System.Drawing.Point(136, 3);
-            this.myWordsCheckBox.Name = "myWordsCheckBox";
-            this.myWordsCheckBox.Size = new System.Drawing.Size(78, 17);
-            this.myWordsCheckBox.TabIndex = 12;
-            this.myWordsCheckBox.Text = "My Words";
-            this.myWordsCheckBox.UseVisualStyleBackColor = true;
-            this.myWordsCheckBox.CheckedChanged += new System.EventHandler(this.myWordsCheckBox_CheckedChanged);
+            this.moreWordsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.moreWordsCheckBox.AutoSize = true;
+            this.moreWordsCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moreWordsCheckBox.Location = new System.Drawing.Point(11, 28);
+            this.moreWordsCheckBox.Name = "moreWordsCheckBox";
+            this.moreWordsCheckBox.Size = new System.Drawing.Size(81, 23);
+            this.moreWordsCheckBox.TabIndex = 12;
+            this.moreWordsCheckBox.Text = "More Words";
+            this.moreWordsCheckBox.UseVisualStyleBackColor = true;
+            this.moreWordsCheckBox.CheckedChanged += new System.EventHandler(this.myWordsCheckBox_CheckedChanged);
             // 
             // randomCB
             // 
+            this.randomCB.Appearance = System.Windows.Forms.Appearance.Button;
             this.randomCB.AutoSize = true;
             this.randomCB.Enabled = false;
             this.randomCB.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomCB.Location = new System.Drawing.Point(93, 26);
+            this.randomCB.Location = new System.Drawing.Point(191, 3);
             this.randomCB.Name = "randomCB";
-            this.randomCB.Size = new System.Drawing.Size(69, 17);
+            this.randomCB.Size = new System.Drawing.Size(71, 23);
             this.randomCB.TabIndex = 13;
-            this.randomCB.Text = "Random";
+            this.randomCB.Text = "At random";
             this.randomCB.UseVisualStyleBackColor = true;
             // 
             // wordsPanel
             // 
-            this.wordsPanel.Controls.Add(this.editWordsBtn);
+            this.wordsPanel.Controls.Add(this.onlyTheseCheckBox);
+            this.wordsPanel.Controls.Add(this.wordFileDialogBTN);
             this.wordsPanel.Controls.Add(this.addSpecialCheckBox);
             this.wordsPanel.Controls.Add(this.randomCB);
             this.wordsPanel.Controls.Add(this.capitaliseCheckBox);
-            this.wordsPanel.Controls.Add(this.myWordsCheckBox);
+            this.wordsPanel.Controls.Add(this.moreWordsCheckBox);
             this.wordsPanel.Enabled = false;
-            this.wordsPanel.Location = new System.Drawing.Point(71, 39);
+            this.wordsPanel.Location = new System.Drawing.Point(97, 36);
             this.wordsPanel.Name = "wordsPanel";
-            this.wordsPanel.Size = new System.Drawing.Size(221, 51);
+            this.wordsPanel.Size = new System.Drawing.Size(272, 56);
             this.wordsPanel.TabIndex = 14;
+            // 
+            // onlyTheseCheckBox
+            // 
+            this.onlyTheseCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.onlyTheseCheckBox.AutoSize = true;
+            this.onlyTheseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onlyTheseCheckBox.Location = new System.Drawing.Point(97, 28);
+            this.onlyTheseCheckBox.Name = "onlyTheseCheckBox";
+            this.onlyTheseCheckBox.Size = new System.Drawing.Size(72, 23);
+            this.onlyTheseCheckBox.TabIndex = 15;
+            this.onlyTheseCheckBox.Text = "Only these";
+            this.onlyTheseCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // wordFileDialogBTN
+            // 
+            this.wordFileDialogBTN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wordFileDialogBTN.Location = new System.Drawing.Point(175, 28);
+            this.wordFileDialogBTN.Name = "wordFileDialogBTN";
+            this.wordFileDialogBTN.Size = new System.Drawing.Size(39, 23);
+            this.wordFileDialogBTN.TabIndex = 14;
+            this.wordFileDialogBTN.Text = "...";
+            this.wordFileDialogBTN.UseVisualStyleBackColor = true;
+            this.wordFileDialogBTN.Click += new System.EventHandler(this.wordFileDialogBTN_Click);
             // 
             // randomPanel
             // 
             this.randomPanel.Controls.Add(this.label1);
             this.randomPanel.Controls.Add(this.trackBar1);
             this.randomPanel.Controls.Add(this.pwCharsLabel);
-            this.randomPanel.Location = new System.Drawing.Point(131, 8);
+            this.randomPanel.Location = new System.Drawing.Point(97, 11);
             this.randomPanel.Name = "randomPanel";
-            this.randomPanel.Size = new System.Drawing.Size(209, 25);
+            this.randomPanel.Size = new System.Drawing.Size(242, 27);
             this.randomPanel.TabIndex = 15;
-            // 
-            // editWordsBtn
-            // 
-            this.editWordsBtn.Location = new System.Drawing.Point(171, 21);
-            this.editWordsBtn.Name = "editWordsBtn";
-            this.editWordsBtn.Size = new System.Drawing.Size(37, 23);
-            this.editWordsBtn.TabIndex = 14;
-            this.editWordsBtn.Text = "edit";
-            this.editWordsBtn.UseVisualStyleBackColor = true;
-            this.editWordsBtn.Visible = false;
-            this.editWordsBtn.Click += new System.EventHandler(this.editWordsBtn_Click);
             // 
             // window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(394, 126);
+            this.ClientSize = new System.Drawing.Size(424, 123);
             this.Controls.Add(this.wordsPanel);
-            this.Controls.Add(this.aboutButton);
+            this.Controls.Add(this.randomPanel);
+            this.Controls.Add(this.charactersRadio);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.wordsRadio);
-            this.Controls.Add(this.randomRadio);
             this.Controls.Add(this.copyButton);
             this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.generateButton);
-            this.Controls.Add(this.randomPanel);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -274,6 +287,7 @@
             this.Opacity = 0.95D;
             this.Text = "pw";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.window_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.wordsPanel.ResumeLayout(false);
             this.wordsPanel.PerformLayout();
@@ -292,17 +306,17 @@
         private System.Windows.Forms.Label pwCharsLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button copyButton;
-        private System.Windows.Forms.RadioButton randomRadio;
+        private System.Windows.Forms.RadioButton charactersRadio;
         private System.Windows.Forms.RadioButton wordsRadio;
         private System.Windows.Forms.CheckBox addSpecialCheckBox;
         private System.Windows.Forms.CheckBox capitaliseCheckBox;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button aboutButton;
-        private System.Windows.Forms.CheckBox myWordsCheckBox;
+        private System.Windows.Forms.CheckBox moreWordsCheckBox;
         private System.Windows.Forms.CheckBox randomCB;
         private System.Windows.Forms.Panel wordsPanel;
         private System.Windows.Forms.Panel randomPanel;
-        private System.Windows.Forms.Button editWordsBtn;
+        private System.Windows.Forms.Button wordFileDialogBTN;
+        private System.Windows.Forms.CheckBox onlyTheseCheckBox;
     }
 }
 
