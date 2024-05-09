@@ -6,6 +6,7 @@ using System.Linq;
 using System.IO;
 using System.Drawing;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.CompilerServices;
 
 namespace pw
 {
@@ -16,9 +17,13 @@ namespace pw
         List<string> myWordList = new List<string>();
         //String[] wordList = new String[7776];
         Boolean useMyWord = false;
+        Timer copiedTimer = new Timer
+        {
+            Interval = 2000
+        };
 
         String runningPasswords = "";
-        
+
 
         public window()
         {
@@ -41,9 +46,9 @@ namespace pw
                 }
 
             }
-           
-                wordLine = Properties.Resources.words2;
-            
+
+            wordLine = Properties.Resources.words2;
+
 
             //wordList = wordLine.Split('\n').ToList();
 
@@ -72,13 +77,21 @@ namespace pw
             capitaliseCheckBox.Checked = Properties.Settings.Default.capitalise;
             randomCB.Checked = Properties.Settings.Default.atRandom;
             moreWordsCheckBox.Checked = Properties.Settings.Default.moreWords;
+            if (moreWordsCheckBox.Checked)
+            {
+                onlyTheseCheckBox.Enabled = true;
+            }
+            else
+            {
+                onlyTheseCheckBox.Enabled = false;
+            }
             onlyTheseCheckBox.Checked = Properties.Settings.Default.onlyThese;
-            
-           
+
+
 
         }
 
-        private List<string>  wordsToList(string words)
+        private List<string> wordsToList(string words)
         {
             return words.Split('\n').ToList();
         }
@@ -86,7 +99,8 @@ namespace pw
         private void generateButton_Click(object sender, EventArgs e)
         {
             addButton.Enabled = true;
-            passwordTB.Text = "";
+            //passwordTB.Text = "";
+            pwLabel.Text = "";
 
             if (charactersRadio.Checked)
             {
@@ -97,7 +111,7 @@ namespace pw
                 generateWords(3, moreWordsCheckBox.Checked);
             }
 
-            runningPasswords += "\n"+passwordTB.Text;
+            runningPasswords += "\n" + pwLabel.Text;
             Console.WriteLine(runningPasswords);
         }
         private void generateChars()
@@ -106,7 +120,7 @@ namespace pw
             for (int i = 0; i < trackBar1.Value; i++)
             {
                 char c = pw[getRandom(pw.Length)];
-                passwordTB.Text += c;
+                pwLabel.Text += c;
             }
         }
         private void generateWords(int numWords, Boolean useMyWord)
@@ -120,7 +134,8 @@ namespace pw
             {
                 String singleWord = "";
 
-                if (useMyWord && onlyTheseCheckBox.Checked && (myWordList.Count > 0)) {
+                if (useMyWord && onlyTheseCheckBox.Checked && (myWordList.Count > 0))
+                {
 
                     singleWord = myWordList[getRandom(myWordList.Count)];
 
@@ -162,8 +177,8 @@ namespace pw
                         singleWord = new string(array);
                     }
                     else
-                    { 
-                        singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim()); 
+                    {
+                        singleWord = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(singleWord.Trim());
                     }
                     //
                 }
@@ -175,15 +190,16 @@ namespace pw
                     char c = pw[getRandom(pw.Length)];
                     singleWord = singleWord.Trim() + c;
                 }
-                passwordTB.Text += singleWord.Trim();
+                //passwordTB.Text += singleWord.Trim();
+                pwLabel.Text += singleWord.Trim();
             }
-            if (passwordTB.Text.Length < 12)
+            if (pwLabel.Text.Length < 12)
             {
-                passwordTB.ForeColor = System.Drawing.Color.Red;
+                pwLabel.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
-                passwordTB.ForeColor = System.Drawing.Color.Lime;
+                pwLabel.ForeColor = System.Drawing.Color.Lime;
             }
         }
 
@@ -204,7 +220,7 @@ namespace pw
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(passwordTB.Text);
+            Clipboard.SetText(pwLabel.Text);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -220,15 +236,22 @@ namespace pw
 
         }
 
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
-            passwordTB.Text = "(c) Mark Parsons v0.0.3 BSD Licence";
-            addButton.Enabled = false;
-        }
 
-        private void myWordsCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void moreWordsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (moreWordsCheckBox.Checked)
+            {
+                onlyTheseCheckBox.Enabled = true;
+                Properties.Settings.Default.moreWords = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                onlyTheseCheckBox.Enabled = false;
+                Properties.Settings.Default.moreWords = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void capitaliseCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -270,11 +293,11 @@ namespace pw
             }
         }
 
-       
+
 
         private void window_Load(object sender, EventArgs e)
         {
-            passwordTB.Text = "(c) Mark Parsons v0.0.4 BSD Licence";
+            pwLabel.Text = "(c) Mark Parsons v0.0.5 BSD Licence";
         }
 
         private void wordFileDialogBTN_Click(object sender, EventArgs e)
@@ -309,16 +332,49 @@ namespace pw
             {
                 Properties.Settings.Default.special = true;
                 Properties.Settings.Default.Save();
+
             }
             else
             {
                 Properties.Settings.Default.special = false;
                 Properties.Settings.Default.Save();
+
             }
-            
+
+        }
+
+        private void passwordTB_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(pwLabel.Text);
+        }
+
+        private void pwLabel_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(pwLabel.Text);
+            copiedTimer.Enabled = true;
+            copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
+            this.Text = "pw - copied to clipboard";
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(pwLabel.Text);
+            copiedTimer.Enabled = true;
+            copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
+            this.Text = "pw - copied to clipboard";
+        }
+
+        public void OnTimerEvent(object source, EventArgs e)
+        {
+            changeTitle();
+            copiedTimer.Stop();
+        }
+
+        private void changeTitle()
+        {
+            this.Text = "pw";
         }
     }
-
     }
 
  
