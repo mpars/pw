@@ -113,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pw_TemporaryKey.pfx" />
-    <None Include="Resources\words.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lock.ico" />
@@ -121,7 +120,6 @@
     <None Include="Resources\arrow_refresh_small.png" />
     <None Include="Resources\page_white_copy.png" />
     <None Include="Resources\key_add.png" />
-    <None Include="Resources\myWords.txt" />
     <None Include="Resources\words2.txt" />
   </ItemGroup>
   <ItemGroup>
