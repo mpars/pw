@@ -9,6 +9,9 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.CompilerServices;
 
 namespace pw
+
+// lock and refresh icons used are from www.fatcow.com/free-icons
+// Creative Commons Attribution 3.0 License
 {
     public partial class window : Form
 
