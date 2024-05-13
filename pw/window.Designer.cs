@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(window));
             this.generateButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -46,11 +47,15 @@
             this.wordFileDialogBTN = new System.Windows.Forms.Button();
             this.randomPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.passwordsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pwLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.wordsPanel.SuspendLayout();
             this.randomPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.passwordsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -281,6 +286,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.ContextMenuStrip = this.passwordsMenu;
             this.panel1.Controls.Add(this.pwLabel);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(0, 78);
@@ -288,6 +294,27 @@
             this.panel1.Size = new System.Drawing.Size(424, 32);
             this.panel1.TabIndex = 16;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // passwordsMenu
+            // 
+            this.passwordsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMenuItem,
+            this.toolStripSeparator1});
+            this.passwordsMenu.Name = "passwordsMenu";
+            this.passwordsMenu.Size = new System.Drawing.Size(108, 32);
+            this.passwordsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.passwordsMenu_ItemClicked);
+            // 
+            // aboutMenuItem
+            // 
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutMenuItem.Text = "About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
             // 
             // pwLabel
             // 
@@ -298,9 +325,9 @@
             this.pwLabel.ForeColor = System.Drawing.Color.Lime;
             this.pwLabel.Location = new System.Drawing.Point(3, 5);
             this.pwLabel.Name = "pwLabel";
-            this.pwLabel.Size = new System.Drawing.Size(70, 22);
+            this.pwLabel.Size = new System.Drawing.Size(20, 22);
             this.pwLabel.TabIndex = 0;
-            this.pwLabel.Text = "label2";
+            this.pwLabel.Text = "-";
             this.pwLabel.Click += new System.EventHandler(this.pwLabel_Click);
             // 
             // window
@@ -319,6 +346,7 @@
             this.Controls.Add(this.generateButton);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -326,6 +354,7 @@
             this.Opacity = 0.95D;
             this.Text = "pw";
             this.TopMost = true;
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.window_HelpButtonClicked);
             this.Load += new System.EventHandler(this.window_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.wordsPanel.ResumeLayout(false);
@@ -334,6 +363,7 @@
             this.randomPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.passwordsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +389,9 @@
         private System.Windows.Forms.CheckBox onlyTheseCheckBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label pwLabel;
+        private System.Windows.Forms.ContextMenuStrip passwordsMenu;
+        private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

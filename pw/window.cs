@@ -1,4 +1,6 @@
-﻿using System;
+﻿// v0.0.6
+
+using System;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace pw
 
@@ -24,9 +27,9 @@ namespace pw
         {
             Interval = 2000
         };
-
+        
         String runningPasswords = "";
-
+        
 
         public window()
         {
@@ -94,6 +97,11 @@ namespace pw
 
         }
 
+        private void window_Load(object sender, EventArgs e)
+        {
+            //pwLabel.Text = "Left click:copy, right:list previous";
+        }
+
         private List<string> wordsToList(string words)
         {
             return words.Split('\n').ToList();
@@ -116,6 +124,7 @@ namespace pw
 
             runningPasswords += "\n" + pwLabel.Text;
             Console.WriteLine(runningPasswords);
+            passwordsMenu.Items.Add(pwLabel.Text);
         }
         private void generateChars()
         {
@@ -298,10 +307,7 @@ namespace pw
 
 
 
-        private void window_Load(object sender, EventArgs e)
-        {
-            pwLabel.Text = "(c) Mark Parsons v0.0.5 BSD Licence";
-        }
+
 
         private void wordFileDialogBTN_Click(object sender, EventArgs e)
         {
@@ -346,25 +352,16 @@ namespace pw
 
         }
 
-        private void passwordTB_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(pwLabel.Text);
-        }
+      
 
         private void pwLabel_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(pwLabel.Text);
-            copiedTimer.Enabled = true;
-            copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
-            this.Text = "pw - copied to clipboard";
+            copyToClipboard(pwLabel.Text);
         }
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(pwLabel.Text);
-            copiedTimer.Enabled = true;
-            copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
-            this.Text = "pw - copied to clipboard";
+            copyToClipboard(pwLabel.Text);
         }
 
         public void OnTimerEvent(object source, EventArgs e)
@@ -376,6 +373,42 @@ namespace pw
         private void changeTitle()
         {
             this.Text = "pw";
+        }
+
+       
+
+        private void passwordsMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if(e.ClickedItem.Text != "About") {
+                copyToClipboard(e.ClickedItem.ToString());
+            }
+            
+            
+            //Clipboard.SetText(e.ClickedItem.ToString());
+            //copiedTimer.Enabled = true;
+            //copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
+            //this.Text = "pw - copied to clipboard";
+        }
+
+        private void copyToClipboard(String pw)
+        {
+            Clipboard.SetText(pw);
+            copiedTimer.Enabled = true;
+            copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
+            this.Text = "pw - copied to clipboard";
+        }
+
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            pwLabel.Text = "(c) Mark Parsons v0.0.6 BSD Licence";
+         
+        }
+
+
+
+        private void window_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Process.Start("https://github.com/mpars/pw/blob/master/README.md");
         }
     }
     }
