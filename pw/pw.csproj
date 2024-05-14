@@ -116,10 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lock.ico" />
-    <None Include="Resources\application_xp_terminal.png" />
     <None Include="Resources\arrow_refresh_small.png" />
-    <None Include="Resources\page_white_copy.png" />
-    <None Include="Resources\key_add.png" />
     <None Include="Resources\words2.txt" />
   </ItemGroup>
   <ItemGroup>
