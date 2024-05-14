@@ -50,6 +50,7 @@
             this.addWordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.charactersTrackBar)).BeginInit();
             this.wordsPanel.SuspendLayout();
             this.randomPanel.SuspendLayout();
@@ -308,6 +309,14 @@
             this.passwordLabel.Text = "-";
             this.passwordLabel.Click += new System.EventHandler(this.pwLabel_Click);
             // 
+            // trayIcon
+            // 
+            this.trayIcon.BalloonTipText = "pw has been minimised to the system tray\r\nclick pw\'s system tray icon to open.";
+            this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
+            this.trayIcon.Text = "pw";
+            this.trayIcon.Visible = true;
+            this.trayIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.trayIcon_MouseClick);
+            // 
             // window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +341,7 @@
             this.TopMost = true;
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.window_HelpButtonClicked);
             this.Load += new System.EventHandler(this.window_Load);
+            this.Resize += new System.EventHandler(this.window_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.charactersTrackBar)).EndInit();
             this.wordsPanel.ResumeLayout(false);
             this.wordsPanel.PerformLayout();
@@ -367,6 +377,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem addWordMenuItem;
+        private System.Windows.Forms.NotifyIcon trayIcon;
     }
 }
 

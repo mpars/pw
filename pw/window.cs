@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.IO;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace pw
 
@@ -17,7 +18,7 @@ namespace pw
 
     {
         // pw version
-        String versionString = "0.0.7";
+        String versionString = "0.0.8";
 
         // word lists
         List<string> wordList = new List<string>();
@@ -216,7 +217,8 @@ namespace pw
         public int getRandom(int maxNumber)
         {
             byte[] b = new byte[4];
-            System.Security.Cryptography.RNGCryptoServiceProvider.Create().GetBytes(b);
+            //System.Security.Cryptography.RNGCryptoServiceProvider.Create().GetBytes(b);
+            RandomNumberGenerator.Create().GetBytes(b);
             int seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
             return seed % maxNumber;
         }
@@ -365,10 +367,12 @@ namespace pw
 
         private void copyToClipboard(String pw)
         {
+            if (pw.Length >0) { 
             Clipboard.SetText(pw);
             copiedTimer.Enabled = true;
             copiedTimer.Tick += new System.EventHandler(OnTimerEvent);
             this.Text = "pw - copied to clipboard";
+            }
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
@@ -396,6 +400,26 @@ namespace pw
                 generateWords(1, false);
             }
             passwordsMenu.Items.Add(passwordLabel.Text);
+        }
+
+
+        // make system tray on minimise and return to normal state on click
+        // probably get rid of this in future
+        // get rid of notifyIcon 
+        private void window_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                trayIcon.Visible = true;
+                trayIcon.ShowBalloonTip(2000);
+                this.ShowInTaskbar = false;
+            }
+        }
+        private void trayIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            trayIcon.Visible = false;
         }
     }
     }
