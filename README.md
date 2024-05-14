@@ -17,6 +17,6 @@ Use a text file of your own words.
 
 Left-click on password box to copy password to the clipboard.
 
-![Right-click for contextual menu](images/pw3.png)
+![Right-click for contextual menu](images/pw4.png)
 
 Right-click on password box to bring up a menu of previously generated passwords, selecting an item will copy the password to the clipboard.
