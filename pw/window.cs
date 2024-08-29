@@ -18,7 +18,7 @@ namespace pw
 
     {
         // pw version
-        String versionString = "0.0.8";
+        String versionString = "0.0.9";
 
         // word lists
         List<string> wordList = new List<string>();
@@ -31,7 +31,9 @@ namespace pw
 
         Boolean showingAbout = false;
         Boolean useMyWord = false;
+        Boolean quitting = false;
 
+        
 
 
         public window()
@@ -102,6 +104,7 @@ namespace pw
         private void window_Load(object sender, EventArgs e)
         {
             passwordLabel.Text = "";
+            
         }
 
         private List<string> wordsToList(string words)
@@ -111,7 +114,7 @@ namespace pw
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            addWordMenuItem.Enabled = true;
+            addWordToolStripMenuItem.Enabled = true;
             showingAbout = false;
             passwordLabel.Text = "";
 
@@ -378,7 +381,7 @@ namespace pw
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
             passwordLabel.Text = "(c) Mark Parsons v"+versionString+" BSD Licence";
-            addWordMenuItem.Enabled = false;
+            addWordToolStripMenuItem.Enabled = false;
             showingAbout = true;
         }
 
@@ -391,15 +394,6 @@ namespace pw
 
         private void addWordMenuItem_Click(object sender, EventArgs e)
         {
-            if (charactersRadio.Checked)
-            {
-                generateChars();
-            }
-            else
-            {
-                generateWords(1, false);
-            }
-            passwordsMenu.Items.Add(passwordLabel.Text);
         }
 
 
@@ -411,15 +405,80 @@ namespace pw
             if (this.WindowState == FormWindowState.Minimized)
             {
                 trayIcon.Visible = true;
-                trayIcon.ShowBalloonTip(2000);
+                //trayIcon.ShowBalloonTip(2000);
                 this.ShowInTaskbar = false;
             }
         }
         private void trayIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            this.ShowInTaskbar = true;
-            trayIcon.Visible = false;
+            if(e.Button == MouseButtons.Left)
+            {
+                this.ShowInTaskbar = true;
+                trayIcon.Visible = false;
+                this.Show();
+            }
+            //this.WindowState = FormWindowState.Normal;
+            
+        }
+
+        private void window_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!quitting) {
+                this.Hide();
+                trayIcon.Visible = true;
+                //trayIcon.ShowBalloonTip(2000);
+                this.ShowInTaskbar = false;
+                e.Cancel = true;
+            }
+
+
+        }
+
+        private void quitMenuItem_Click(object sender, EventArgs e)
+        {
+            quitting = true;
+            this.Close();
+        }
+
+        private void addWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (charactersRadio.Checked)
+            {
+                generateChars();
+            }
+            else
+            {
+                generateWords(1, false);
+            }
+            passwordsMenu.Items.Add(passwordLabel.Text);
+        
+    }
+
+        private void clearPasswordListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = passwordsMenu.Items.Count; i > 4; i=i-1)
+            {
+                passwordsMenu.Items.RemoveAt(4);
+            } 
+        }
+
+        private void saveGeneratedPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string passwordsText = "";
+            for (int i = 4; i < passwordsMenu.Items.Count; i++)
+            {
+                passwordsText += passwordsMenu.Items[i].Text + "\n";
+            }
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                sfd.FilterIndex = 2;
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(sfd.FileName, passwordsText);
+                }
+            }
         }
     }
     }

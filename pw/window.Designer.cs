@@ -47,7 +47,11 @@
             this.passwordPanel = new System.Windows.Forms.Panel();
             this.passwordsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addWordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearPasswordListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveGeneratedPasswordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -200,12 +204,12 @@
             // 
             // wordsPanel
             // 
-            this.wordsPanel.Controls.Add(this.onlyTheseCheckBox);
-            this.wordsPanel.Controls.Add(this.wordFileDialogBTN);
-            this.wordsPanel.Controls.Add(this.addSpecialCheckBox);
             this.wordsPanel.Controls.Add(this.randomCheckBox);
             this.wordsPanel.Controls.Add(this.capitaliseCheckBox);
+            this.wordsPanel.Controls.Add(this.onlyTheseCheckBox);
+            this.wordsPanel.Controls.Add(this.wordFileDialogBTN);
             this.wordsPanel.Controls.Add(this.moreWordsCheckBox);
+            this.wordsPanel.Controls.Add(this.addSpecialCheckBox);
             this.wordsPanel.Enabled = false;
             this.wordsPanel.Location = new System.Drawing.Point(97, 27);
             this.wordsPanel.Name = "wordsPanel";
@@ -270,30 +274,62 @@
             // 
             this.passwordsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutMenuItem,
-            this.addWordMenuItem,
+            this.optionsToolStripMenuItem,
+            this.quitMenuItem,
             this.toolStripSeparator1});
             this.passwordsMenu.Name = "passwordsMenu";
-            this.passwordsMenu.Size = new System.Drawing.Size(129, 54);
+            this.passwordsMenu.Size = new System.Drawing.Size(181, 98);
             this.passwordsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.passwordsMenu_ItemClicked);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutMenuItem.Text = "About";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
-            // addWordMenuItem
+            // optionsToolStripMenuItem
             // 
-            this.addWordMenuItem.Name = "addWordMenuItem";
-            this.addWordMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.addWordMenuItem.Text = "Add Word";
-            this.addWordMenuItem.Click += new System.EventHandler(this.addWordMenuItem_Click);
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addWordToolStripMenuItem,
+            this.clearPasswordListToolStripMenuItem,
+            this.saveGeneratedPasswordsToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // addWordToolStripMenuItem
+            // 
+            this.addWordToolStripMenuItem.Name = "addWordToolStripMenuItem";
+            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.addWordToolStripMenuItem.Text = "Add Word";
+            this.addWordToolStripMenuItem.Click += new System.EventHandler(this.addWordToolStripMenuItem_Click);
+            // 
+            // clearPasswordListToolStripMenuItem
+            // 
+            this.clearPasswordListToolStripMenuItem.Name = "clearPasswordListToolStripMenuItem";
+            this.clearPasswordListToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.clearPasswordListToolStripMenuItem.Text = "Clear Password List";
+            this.clearPasswordListToolStripMenuItem.Click += new System.EventHandler(this.clearPasswordListToolStripMenuItem_Click);
+            // 
+            // saveGeneratedPasswordsToolStripMenuItem
+            // 
+            this.saveGeneratedPasswordsToolStripMenuItem.Name = "saveGeneratedPasswordsToolStripMenuItem";
+            this.saveGeneratedPasswordsToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.saveGeneratedPasswordsToolStripMenuItem.Text = "Save Generated Passwords...";
+            this.saveGeneratedPasswordsToolStripMenuItem.Click += new System.EventHandler(this.saveGeneratedPasswordsToolStripMenuItem_Click);
+            // 
+            // quitMenuItem
+            // 
+            this.quitMenuItem.Name = "quitMenuItem";
+            this.quitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitMenuItem.Text = "Quit";
+            this.quitMenuItem.Click += new System.EventHandler(this.quitMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // passwordLabel
             // 
@@ -312,6 +348,7 @@
             // trayIcon
             // 
             this.trayIcon.BalloonTipText = "pw has been minimised to the system tray\r\nclick pw\'s system tray icon to open.";
+            this.trayIcon.ContextMenuStrip = this.passwordsMenu;
             this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
             this.trayIcon.Text = "pw";
             this.trayIcon.Visible = true;
@@ -340,6 +377,7 @@
             this.Text = "pw";
             this.TopMost = true;
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.window_HelpButtonClicked);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.window_FormClosing);
             this.Load += new System.EventHandler(this.window_Load);
             this.Resize += new System.EventHandler(this.window_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.charactersTrackBar)).EndInit();
@@ -376,8 +414,12 @@
         private System.Windows.Forms.ContextMenuStrip passwordsMenu;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem addWordMenuItem;
         private System.Windows.Forms.NotifyIcon trayIcon;
+        private System.Windows.Forms.ToolStripMenuItem quitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearPasswordListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveGeneratedPasswordsToolStripMenuItem;
     }
 }
 
