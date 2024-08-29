@@ -1,7 +1,7 @@
 # pw
 Random password generator written in C#
 
-Uses Cryptography.RNGCryptoServiceProvider to generate random numbers
+Uses the RandomNumberGenerator Class from System.Security.Cryptography to generate random numbers
 
 Generate random character passwords with a length from 8-40
 
