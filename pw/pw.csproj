@@ -61,7 +61,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -77,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="character_options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="character_options.Designer.cs">
+      <DependentUpon>character_options.cs</DependentUpon>
+    </Compile>
     <Compile Include="window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="character_options.resx">
+      <DependentUpon>character_options.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="window.resx">
       <DependentUpon>window.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,9 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pw_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lock.ico" />

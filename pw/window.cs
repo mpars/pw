@@ -8,6 +8,8 @@ using System.Linq;
 using System.IO;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using pw.Properties;
+using System.Linq.Expressions;
 
 namespace pw
 
@@ -18,7 +20,7 @@ namespace pw
 
     {
         // pw version
-        String versionString = "0.0.9";
+        String versionString = "0.0.10";
 
         // word lists
         List<string> wordList = new List<string>();
@@ -96,6 +98,7 @@ namespace pw
             }
 
             onlyTheseCheckBox.Checked = Properties.Settings.Default.onlyThese;
+            QuitToTrayToolStripMenuItem.Checked = Properties.Settings.Default.quit_to_tray;
 
 
 
@@ -109,6 +112,11 @@ namespace pw
 
         private List<string> wordsToList(string words)
         {
+            if(words.Contains(' '))
+            {
+                words = words.Replace(' ', '\n');
+            }
+            
             return words.Split('\n').ToList();
         }
 
@@ -131,7 +139,7 @@ namespace pw
         }
         private void generateChars()
         {
-            string pw = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890!£$%*()_-}";
+            string pw = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm" + generateSpecialCharacters();
             for (int i = 0; i < charactersTrackBar.Value; i++)
             {
                 char c = pw[getRandom(pw.Length)];
@@ -198,7 +206,7 @@ namespace pw
 
                 if (addSpecialCheckBox.Checked)
                 {
-                    string pw = "1234567890!£$%*()_-}{[]#'?";
+                    string pw = generateSpecialCharacters();
                     char c = pw[getRandom(pw.Length)];
                     singleWord = singleWord.Trim() + c;
                 }
@@ -216,6 +224,27 @@ namespace pw
         }
 
 
+        private string generateSpecialCharacters()
+        {
+            string special_chars = "";
+            if (Properties.Settings.Default.special_numbers) { special_chars += "1234567890"; }
+            if (Properties.Settings.Default.special_brackets) { special_chars += "()"; }
+            if (Properties.Settings.Default.special_curly) { special_chars += "{}"; }
+            if (Properties.Settings.Default.special_dash) { special_chars += "-"; }
+            if (Properties.Settings.Default.special_dollar) { special_chars += "$"; }
+            if (Properties.Settings.Default.special_excla) { special_chars += "!"; }
+            if (Properties.Settings.Default.special_hash) { special_chars += "#"; }
+            if (Properties.Settings.Default.special_percent) { special_chars += "%"; }
+            if (Properties.Settings.Default.special_pound) { special_chars += "£"; }
+            if (Properties.Settings.Default.special_question) { special_chars += "?"; }
+            if (Properties.Settings.Default.special_quote) { special_chars += "'";}                 
+            if (Properties.Settings.Default.special_square) { special_chars += "[]"; }
+            if (Properties.Settings.Default.special_star) { special_chars += "*"; }
+            if (Properties.Settings.Default.special_under) { special_chars += "_"; }
+            if (Properties.Settings.Default.special_user) { special_chars += Properties.Settings.Default.special_user_string; }
+
+            return special_chars;
+        }
 
         public int getRandom(int maxNumber)
         {
@@ -223,7 +252,12 @@ namespace pw
             //System.Security.Cryptography.RNGCryptoServiceProvider.Create().GetBytes(b);
             RandomNumberGenerator.Create().GetBytes(b);
             int seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
-            return seed % maxNumber;
+
+            try { return seed % maxNumber; }
+            catch { return 0; }
+                
+            
+            
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -312,8 +346,9 @@ namespace pw
             {
                 myWordLine = File.ReadAllText(Properties.Settings.Default.wordsFilePath);
                 myWordList = wordsToList(myWordLine);
+                Console.Write(myWordList);
             }
-            catch { }
+            catch {  }
         }
 
         private void addSpecialCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -423,7 +458,8 @@ namespace pw
 
         private void window_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!quitting) {
+            if (!quitting & Properties.Settings.Default.quit_to_tray) {
+                if (Application.OpenForms.OfType<character_options>().Count() == 1) Application.OpenForms.OfType<character_options>().First().Close();
                 this.Hide();
                 trayIcon.Visible = true;
                 //trayIcon.ShowBalloonTip(2000);
@@ -480,8 +516,42 @@ namespace pw
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<character_options>().Count() == 0) { 
+                Form f1 = new character_options();
+                f1.Show();
+            }
+        }
+
+        private void QuitToTrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (QuitToTrayToolStripMenuItem.Checked) {
+                QuitToTrayToolStripMenuItem.Checked = false;
+                Properties.Settings.Default.quit_to_tray = false;
+                Properties.Settings.Default.Save();
+            }
+            else 
+            {
+                QuitToTrayToolStripMenuItem.Checked = true;
+                Properties.Settings.Default.quit_to_tray = true;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void menuButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            passwordsMenu.Show(Cursor.Position);
+        }
     }
-    }
+    
+}
 
  
 

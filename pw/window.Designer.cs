@@ -51,10 +51,14 @@
             this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearPasswordListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveGeneratedPasswordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuitToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.specialCharsOptions = new System.Windows.Forms.Button();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.charactersTrackBar)).BeginInit();
             this.wordsPanel.SuspendLayout();
             this.randomPanel.SuspendLayout();
@@ -69,9 +73,9 @@
             this.generateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generateButton.Image = global::pw.Properties.Resources.arrow_refresh_small;
-            this.generateButton.Location = new System.Drawing.Point(376, 29);
+            this.generateButton.Location = new System.Drawing.Point(377, 51);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(42, 43);
+            this.generateButton.Size = new System.Drawing.Size(42, 38);
             this.generateButton.TabIndex = 0;
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
@@ -162,7 +166,7 @@
             this.capitaliseCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.capitaliseCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.capitaliseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.capitaliseCheckBox.Location = new System.Drawing.Point(124, 3);
+            this.capitaliseCheckBox.Location = new System.Drawing.Point(4, 23);
             this.capitaliseCheckBox.Name = "capitaliseCheckBox";
             this.capitaliseCheckBox.Size = new System.Drawing.Size(73, 17);
             this.capitaliseCheckBox.TabIndex = 9;
@@ -178,7 +182,7 @@
             this.moreWordsCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.moreWordsCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moreWordsCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moreWordsCheckBox.Location = new System.Drawing.Point(4, 23);
+            this.moreWordsCheckBox.Location = new System.Drawing.Point(4, 43);
             this.moreWordsCheckBox.Name = "moreWordsCheckBox";
             this.moreWordsCheckBox.Size = new System.Drawing.Size(109, 17);
             this.moreWordsCheckBox.TabIndex = 12;
@@ -195,7 +199,7 @@
             this.randomCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.randomCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.randomCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomCheckBox.Location = new System.Drawing.Point(200, 3);
+            this.randomCheckBox.Location = new System.Drawing.Point(83, 23);
             this.randomCheckBox.Name = "randomCheckBox";
             this.randomCheckBox.Size = new System.Drawing.Size(77, 17);
             this.randomCheckBox.TabIndex = 13;
@@ -213,7 +217,7 @@
             this.wordsPanel.Enabled = false;
             this.wordsPanel.Location = new System.Drawing.Point(97, 27);
             this.wordsPanel.Name = "wordsPanel";
-            this.wordsPanel.Size = new System.Drawing.Size(273, 48);
+            this.wordsPanel.Size = new System.Drawing.Size(275, 63);
             this.wordsPanel.TabIndex = 14;
             // 
             // onlyTheseCheckBox
@@ -224,7 +228,7 @@
             this.onlyTheseCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.onlyTheseCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.onlyTheseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onlyTheseCheckBox.Location = new System.Drawing.Point(124, 23);
+            this.onlyTheseCheckBox.Location = new System.Drawing.Point(124, 43);
             this.onlyTheseCheckBox.Name = "onlyTheseCheckBox";
             this.onlyTheseCheckBox.Size = new System.Drawing.Size(78, 17);
             this.onlyTheseCheckBox.TabIndex = 15;
@@ -237,9 +241,9 @@
             this.wordFileDialogBTN.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.wordFileDialogBTN.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.wordFileDialogBTN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wordFileDialogBTN.Location = new System.Drawing.Point(206, 22);
+            this.wordFileDialogBTN.Location = new System.Drawing.Point(206, 42);
             this.wordFileDialogBTN.Name = "wordFileDialogBTN";
-            this.wordFileDialogBTN.Size = new System.Drawing.Size(61, 19);
+            this.wordFileDialogBTN.Size = new System.Drawing.Size(61, 20);
             this.wordFileDialogBTN.TabIndex = 14;
             this.wordFileDialogBTN.Text = "Words...";
             this.wordFileDialogBTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -264,9 +268,9 @@
             this.passwordPanel.ContextMenuStrip = this.passwordsMenu;
             this.passwordPanel.Controls.Add(this.passwordLabel);
             this.passwordPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.passwordPanel.Location = new System.Drawing.Point(0, 78);
+            this.passwordPanel.Location = new System.Drawing.Point(0, 95);
             this.passwordPanel.Name = "passwordPanel";
-            this.passwordPanel.Size = new System.Drawing.Size(424, 32);
+            this.passwordPanel.Size = new System.Drawing.Size(429, 32);
             this.passwordPanel.TabIndex = 16;
             this.passwordPanel.Click += new System.EventHandler(this.panel1_Click);
             // 
@@ -278,13 +282,13 @@
             this.quitMenuItem,
             this.toolStripSeparator1});
             this.passwordsMenu.Name = "passwordsMenu";
-            this.passwordsMenu.Size = new System.Drawing.Size(181, 98);
+            this.passwordsMenu.Size = new System.Drawing.Size(117, 76);
             this.passwordsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.passwordsMenu_ItemClicked);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutMenuItem.Text = "About";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -293,9 +297,11 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addWordToolStripMenuItem,
             this.clearPasswordListToolStripMenuItem,
-            this.saveGeneratedPasswordsToolStripMenuItem});
+            this.saveGeneratedPasswordsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.QuitToTrayToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // addWordToolStripMenuItem
@@ -319,17 +325,24 @@
             this.saveGeneratedPasswordsToolStripMenuItem.Text = "Save Generated Passwords...";
             this.saveGeneratedPasswordsToolStripMenuItem.Click += new System.EventHandler(this.saveGeneratedPasswordsToolStripMenuItem_Click);
             // 
+            // QuitToTrayToolStripMenuItem
+            // 
+            this.QuitToTrayToolStripMenuItem.Name = "QuitToTrayToolStripMenuItem";
+            this.QuitToTrayToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.QuitToTrayToolStripMenuItem.Text = "Close to Tray";
+            this.QuitToTrayToolStripMenuItem.Click += new System.EventHandler(this.QuitToTrayToolStripMenuItem_Click);
+            // 
             // quitMenuItem
             // 
             this.quitMenuItem.Name = "quitMenuItem";
-            this.quitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitMenuItem.Size = new System.Drawing.Size(116, 22);
             this.quitMenuItem.Text = "Quit";
             this.quitMenuItem.Click += new System.EventHandler(this.quitMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
             // 
             // passwordLabel
             // 
@@ -354,12 +367,43 @@
             this.trayIcon.Visible = true;
             this.trayIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.trayIcon_MouseClick);
             // 
+            // specialCharsOptions
+            // 
+            this.specialCharsOptions.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.specialCharsOptions.Location = new System.Drawing.Point(369, 3);
+            this.specialCharsOptions.Name = "specialCharsOptions";
+            this.specialCharsOptions.Size = new System.Drawing.Size(51, 20);
+            this.specialCharsOptions.TabIndex = 17;
+            this.specialCharsOptions.Text = "Chars...";
+            this.specialCharsOptions.UseVisualStyleBackColor = true;
+            this.specialCharsOptions.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuButton
+            // 
+            this.menuButton.ContextMenuStrip = this.passwordsMenu;
+            this.menuButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(369, 27);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(51, 20);
+            this.menuButton.TabIndex = 18;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            this.menuButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuButton_MouseDown);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(219, 6);
+            // 
             // window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(424, 110);
+            this.ClientSize = new System.Drawing.Size(429, 127);
+            this.Controls.Add(this.menuButton);
+            this.Controls.Add(this.specialCharsOptions);
             this.Controls.Add(this.passwordPanel);
             this.Controls.Add(this.wordsPanel);
             this.Controls.Add(this.randomPanel);
@@ -420,6 +464,10 @@
         private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearPasswordListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveGeneratedPasswordsToolStripMenuItem;
+        private System.Windows.Forms.Button specialCharsOptions;
+        private System.Windows.Forms.ToolStripMenuItem QuitToTrayToolStripMenuItem;
+        private System.Windows.Forms.Button menuButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 
