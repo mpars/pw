@@ -13,14 +13,14 @@ using System.Linq.Expressions;
 
 namespace pw
 
-// lock and refresh icons used are from www.fatcow.com/free-icons
+// lock icons used are from www.fatcow.com/free-icons
 // Creative Commons Attribution 3.0 License
 {
     public partial class window : Form
 
     {
         // pw version
-        String versionString = "0.0.10";
+        String versionString = "0.0.11";
 
         // word lists
         List<string> wordList = new List<string>();
@@ -121,7 +121,13 @@ namespace pw
         }
 
         private void generateButton_Click(object sender, EventArgs e)
+
         {
+            if (showingAbout)
+            {
+                this.Height = 183;
+                passwordLabel.Font = new System.Drawing.Font("Consolas", 14);
+            }
             addWordToolStripMenuItem.Enabled = true;
             showingAbout = false;
             passwordLabel.Text = "";
@@ -139,7 +145,10 @@ namespace pw
         }
         private void generateChars()
         {
-            string pw = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm" + generateSpecialCharacters();
+            string pw = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+            if (addSpecialCheckBox.Checked) {
+                pw += generateSpecialCharacters();
+            }
             for (int i = 0; i < charactersTrackBar.Value; i++)
             {
                 char c = pw[getRandom(pw.Length)];
@@ -415,7 +424,9 @@ namespace pw
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
-            passwordLabel.Text = "(c) Mark Parsons v"+versionString+" BSD Licence";
+            this.Height = 233;
+            passwordLabel.Font = new System.Drawing.Font("Consolas", 12);
+            passwordLabel.Text = "(c) Mark Parsons v"+versionString+ " BSD Licence\r\nhttps://https://github.com/mpars/pw\r\nIcons from fatcow.com/free-icons\r\nCreative Commons Attribution 3.0 License";
             addWordToolStripMenuItem.Enabled = false;
             showingAbout = true;
         }
@@ -476,25 +487,13 @@ namespace pw
             this.Close();
         }
 
-        private void addWordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (charactersRadio.Checked)
-            {
-                generateChars();
-            }
-            else
-            {
-                generateWords(1, false);
-            }
-            passwordsMenu.Items.Add(passwordLabel.Text);
         
-    }
 
         private void clearPasswordListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = passwordsMenu.Items.Count; i > 4; i=i-1)
+            for (int i = passwordsMenu.Items.Count; i > 5; i=i-1)
             {
-                passwordsMenu.Items.RemoveAt(4);
+                passwordsMenu.Items.RemoveAt(5);
             } 
         }
 
@@ -549,9 +548,24 @@ namespace pw
         {
             passwordsMenu.Show(Cursor.Position);
         }
+
+        private void addWordToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (charactersRadio.Checked)
+            {
+                generateChars();
+            }
+            else
+            {
+                generateWords(1, false);
+            }
+            passwordsMenu.Items.Add(passwordLabel.Text);
+
+        }
+    }
     }
     
-}
+
 
  
 

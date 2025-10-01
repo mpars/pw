@@ -49,9 +49,10 @@
             // numbers_chk
             // 
             this.numbers_chk.AutoSize = true;
-            this.numbers_chk.Location = new System.Drawing.Point(15, 12);
+            this.numbers_chk.Location = new System.Drawing.Point(18, 16);
+            this.numbers_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numbers_chk.Name = "numbers_chk";
-            this.numbers_chk.Size = new System.Drawing.Size(86, 17);
+            this.numbers_chk.Size = new System.Drawing.Size(97, 21);
             this.numbers_chk.TabIndex = 0;
             this.numbers_chk.Text = "1234567890";
             this.numbers_chk.UseVisualStyleBackColor = true;
@@ -60,9 +61,10 @@
             // excla_chk
             // 
             this.excla_chk.AutoSize = true;
-            this.excla_chk.Location = new System.Drawing.Point(15, 35);
+            this.excla_chk.Location = new System.Drawing.Point(18, 46);
+            this.excla_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.excla_chk.Name = "excla_chk";
-            this.excla_chk.Size = new System.Drawing.Size(29, 17);
+            this.excla_chk.Size = new System.Drawing.Size(31, 21);
             this.excla_chk.TabIndex = 1;
             this.excla_chk.Text = "!";
             this.excla_chk.UseVisualStyleBackColor = true;
@@ -71,9 +73,10 @@
             // pound_chk
             // 
             this.pound_chk.AutoSize = true;
-            this.pound_chk.Location = new System.Drawing.Point(47, 35);
+            this.pound_chk.Location = new System.Drawing.Point(55, 46);
+            this.pound_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pound_chk.Name = "pound_chk";
-            this.pound_chk.Size = new System.Drawing.Size(32, 17);
+            this.pound_chk.Size = new System.Drawing.Size(34, 21);
             this.pound_chk.TabIndex = 2;
             this.pound_chk.Text = "£";
             this.pound_chk.UseVisualStyleBackColor = true;
@@ -82,9 +85,10 @@
             // dollar_chk
             // 
             this.dollar_chk.AutoSize = true;
-            this.dollar_chk.Location = new System.Drawing.Point(81, 35);
+            this.dollar_chk.Location = new System.Drawing.Point(94, 46);
+            this.dollar_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dollar_chk.Name = "dollar_chk";
-            this.dollar_chk.Size = new System.Drawing.Size(32, 17);
+            this.dollar_chk.Size = new System.Drawing.Size(34, 21);
             this.dollar_chk.TabIndex = 3;
             this.dollar_chk.Text = "$";
             this.dollar_chk.UseVisualStyleBackColor = true;
@@ -93,9 +97,10 @@
             // percent_chk
             // 
             this.percent_chk.AutoSize = true;
-            this.percent_chk.Location = new System.Drawing.Point(116, 35);
+            this.percent_chk.Location = new System.Drawing.Point(135, 46);
+            this.percent_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.percent_chk.Name = "percent_chk";
-            this.percent_chk.Size = new System.Drawing.Size(35, 17);
+            this.percent_chk.Size = new System.Drawing.Size(38, 21);
             this.percent_chk.TabIndex = 4;
             this.percent_chk.Text = "%";
             this.percent_chk.UseVisualStyleBackColor = true;
@@ -104,9 +109,10 @@
             // star_chk
             // 
             this.star_chk.AutoSize = true;
-            this.star_chk.Location = new System.Drawing.Point(153, 35);
+            this.star_chk.Location = new System.Drawing.Point(178, 46);
+            this.star_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.star_chk.Name = "star_chk";
-            this.star_chk.Size = new System.Drawing.Size(31, 17);
+            this.star_chk.Size = new System.Drawing.Size(32, 21);
             this.star_chk.TabIndex = 5;
             this.star_chk.Text = "*";
             this.star_chk.UseVisualStyleBackColor = true;
@@ -115,9 +121,10 @@
             // brackets_chk
             // 
             this.brackets_chk.AutoSize = true;
-            this.brackets_chk.Location = new System.Drawing.Point(187, 35);
+            this.brackets_chk.Location = new System.Drawing.Point(218, 46);
+            this.brackets_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.brackets_chk.Name = "brackets_chk";
-            this.brackets_chk.Size = new System.Drawing.Size(35, 17);
+            this.brackets_chk.Size = new System.Drawing.Size(39, 21);
             this.brackets_chk.TabIndex = 6;
             this.brackets_chk.Text = "( )";
             this.brackets_chk.UseVisualStyleBackColor = true;
@@ -126,9 +133,10 @@
             // under_chk
             // 
             this.under_chk.AutoSize = true;
-            this.under_chk.Location = new System.Drawing.Point(225, 35);
+            this.under_chk.Location = new System.Drawing.Point(262, 46);
+            this.under_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.under_chk.Name = "under_chk";
-            this.under_chk.Size = new System.Drawing.Size(31, 17);
+            this.under_chk.Size = new System.Drawing.Size(32, 21);
             this.under_chk.TabIndex = 7;
             this.under_chk.Text = "_";
             this.under_chk.UseVisualStyleBackColor = true;
@@ -137,9 +145,10 @@
             // dash_chk
             // 
             this.dash_chk.AutoSize = true;
-            this.dash_chk.Location = new System.Drawing.Point(47, 56);
+            this.dash_chk.Location = new System.Drawing.Point(55, 73);
+            this.dash_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dash_chk.Name = "dash_chk";
-            this.dash_chk.Size = new System.Drawing.Size(30, 17);
+            this.dash_chk.Size = new System.Drawing.Size(32, 21);
             this.dash_chk.TabIndex = 8;
             this.dash_chk.Text = "-";
             this.dash_chk.UseVisualStyleBackColor = true;
@@ -148,9 +157,10 @@
             // curly_chk
             // 
             this.curly_chk.AutoSize = true;
-            this.curly_chk.Location = new System.Drawing.Point(116, 56);
+            this.curly_chk.Location = new System.Drawing.Point(135, 73);
+            this.curly_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.curly_chk.Name = "curly_chk";
-            this.curly_chk.Size = new System.Drawing.Size(35, 17);
+            this.curly_chk.Size = new System.Drawing.Size(39, 21);
             this.curly_chk.TabIndex = 9;
             this.curly_chk.Text = "} {";
             this.curly_chk.UseVisualStyleBackColor = true;
@@ -159,9 +169,10 @@
             // square_chk
             // 
             this.square_chk.AutoSize = true;
-            this.square_chk.Location = new System.Drawing.Point(81, 56);
+            this.square_chk.Location = new System.Drawing.Point(94, 73);
+            this.square_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.square_chk.Name = "square_chk";
-            this.square_chk.Size = new System.Drawing.Size(35, 17);
+            this.square_chk.Size = new System.Drawing.Size(39, 21);
             this.square_chk.TabIndex = 10;
             this.square_chk.Text = "[ ]";
             this.square_chk.UseVisualStyleBackColor = true;
@@ -170,9 +181,10 @@
             // hash_chk
             // 
             this.hash_chk.AutoSize = true;
-            this.hash_chk.Location = new System.Drawing.Point(153, 56);
+            this.hash_chk.Location = new System.Drawing.Point(178, 73);
+            this.hash_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hash_chk.Name = "hash_chk";
-            this.hash_chk.Size = new System.Drawing.Size(33, 17);
+            this.hash_chk.Size = new System.Drawing.Size(35, 21);
             this.hash_chk.TabIndex = 11;
             this.hash_chk.Text = "#";
             this.hash_chk.UseVisualStyleBackColor = true;
@@ -181,9 +193,10 @@
             // quote_chk
             // 
             this.quote_chk.AutoSize = true;
-            this.quote_chk.Location = new System.Drawing.Point(15, 56);
+            this.quote_chk.Location = new System.Drawing.Point(18, 73);
+            this.quote_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.quote_chk.Name = "quote_chk";
-            this.quote_chk.Size = new System.Drawing.Size(29, 17);
+            this.quote_chk.Size = new System.Drawing.Size(30, 21);
             this.quote_chk.TabIndex = 12;
             this.quote_chk.Text = "\'";
             this.quote_chk.UseVisualStyleBackColor = true;
@@ -192,9 +205,10 @@
             // question_chk
             // 
             this.question_chk.AutoSize = true;
-            this.question_chk.Location = new System.Drawing.Point(187, 56);
+            this.question_chk.Location = new System.Drawing.Point(218, 73);
+            this.question_chk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.question_chk.Name = "question_chk";
-            this.question_chk.Size = new System.Drawing.Size(31, 17);
+            this.question_chk.Size = new System.Drawing.Size(33, 21);
             this.question_chk.TabIndex = 13;
             this.question_chk.Text = "?";
             this.question_chk.UseVisualStyleBackColor = true;
@@ -203,9 +217,10 @@
             // user_defined
             // 
             this.user_defined.AutoSize = true;
-            this.user_defined.Location = new System.Drawing.Point(15, 80);
+            this.user_defined.Location = new System.Drawing.Point(18, 105);
+            this.user_defined.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.user_defined.Name = "user_defined";
-            this.user_defined.Size = new System.Drawing.Size(92, 17);
+            this.user_defined.Size = new System.Drawing.Size(102, 21);
             this.user_defined.TabIndex = 14;
             this.user_defined.Text = "User defined";
             this.user_defined.UseVisualStyleBackColor = true;
@@ -213,17 +228,18 @@
             // 
             // user_tb
             // 
-            this.user_tb.Location = new System.Drawing.Point(114, 77);
+            this.user_tb.Location = new System.Drawing.Point(133, 101);
+            this.user_tb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.user_tb.Name = "user_tb";
-            this.user_tb.Size = new System.Drawing.Size(142, 22);
+            this.user_tb.Size = new System.Drawing.Size(165, 25);
             this.user_tb.TabIndex = 15;
             this.user_tb.TextChanged += new System.EventHandler(this.user_tb_TextChanged);
             // 
             // character_options
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 112);
+            this.ClientSize = new System.Drawing.Size(315, 141);
             this.Controls.Add(this.user_tb);
             this.Controls.Add(this.user_defined);
             this.Controls.Add(this.question_chk);
@@ -240,9 +256,13 @@
             this.Controls.Add(this.pound_chk);
             this.Controls.Add(this.excla_chk);
             this.Controls.Add(this.numbers_chk);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "character_options";
+            this.ShowIcon = false;
             this.Text = "Special Characters";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.character_options_Load);
