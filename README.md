@@ -3,13 +3,13 @@
 Random password generator written in C#
 Uses the RandomNumberGenerator Class from System.Security.Cryptography to generate random numbers
 ---
-Generate random character passwords with a length from 8-40
+Generate random character passwords with a length from 8-60
 
-![Random Characters](images/pw1.png)
+![Random Characters](images/pw1.jpg)
 ---
 Generate 3 random words, capitalised and with special characters 
 
-![3 Words](images/pw2.png)
+![3 Words](images/pw2.jpg)
 ---
 Use a text file of your own words. 
 
