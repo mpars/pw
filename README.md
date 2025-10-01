@@ -13,23 +13,23 @@ Generate 3 random words, capitalised and with special characters
 ---
 Use a text file of your own words. 
 
-![Use your own words](images/pw3.png)
+![Use your own words](images/pw3.jpg)
 ---
 Left-click on password box to copy password to the clipboard.
 
-![Right-click for contextual menu](images/pw8.png)
+![Right-click for contextual menu](images/pw4.jpg)
 ---
 Right-click on password box to bring up a menu of previously generated passwords, selecting an item will copy the password to the clipboard.
 
-![Right-click for contextual menu](images/pw5.png)
+![Right-click for contextual menu](images/pw5.jpg)
 ---
 The options menu allows you to add a word to the current password, clear the generated password list and save the generated password list.
 
-![New options menu](images/pw6.png)
+![New options menu](images/pw6.jpg)
 ---
 Closing the window with the close box now moves the application to the tray, right-clicking on the tray icon brings up the contextual menu. 
 To Quit the application, select Quit from the contextual menu.
 
-![Tray Icon](images/pw7.png)
+![Tray Icon](images/pw7.jpg)
 
 
