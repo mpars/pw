@@ -15,6 +15,10 @@ Click on the words button to use a text file of your own words.
 
 ![Use your own words](images/pw3.jpg)
 ---
+The Choose... button next to Special Characters allows you to set the special characters, or input your own selection
+
+![Choose special characters](images/pw.8.jpg)
+---
 Left-click on password box to copy password to the clipboard.
 
 ![Right-click for contextual menu](images/pw4.jpg)
@@ -27,8 +31,8 @@ The options menu allows you to clear the generated password list, save the gener
 
 ![New options menu](images/pw6.jpg)
 ---
-Closing the window with the close box now moves the application to the tray, right-clicking on the tray icon brings up the contextual menu. 
-To Quit the application, select Quit from the contextual menu.
+If the close to tray option is selected then closing the window with the close box now moves the application to the tray, right-clicking on the tray icon brings up the contextual menu. 
+To Quit the application, select Quit from the contextual menu (or deselect the close to tray option)
 
 ![Tray Icon](images/pw7.jpg)
 
