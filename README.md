@@ -17,7 +17,7 @@ Click on the words button to use a text file of your own words.
 ---
 The Choose... button next to Special Characters allows you to set the special characters, or input your own selection
 
-![Choose special characters](images/pw.8.jpg)
+![Choose special characters](images/pw8.jpg)
 ---
 Left-click on password box to copy password to the clipboard.
 
