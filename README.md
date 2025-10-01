@@ -11,7 +11,7 @@ Generate 3 random words, capitalised and with special characters
 
 ![3 Words](images/pw2.jpg)
 ---
-Use a text file of your own words. 
+Click on the words button to use a text file of your own words. 
 
 ![Use your own words](images/pw3.jpg)
 ---
@@ -19,11 +19,11 @@ Left-click on password box to copy password to the clipboard.
 
 ![Right-click for contextual menu](images/pw4.jpg)
 ---
-Right-click on password box to bring up a menu of previously generated passwords, selecting an item will copy the password to the clipboard.
+Right-click on password box (or the 3 dots button) to bring up a menu of previously generated passwords, selecting an item will copy the password to the clipboard. Here you can also add an extra word to the generated password (either characters or words depending on which is selected).
 
 ![Right-click for contextual menu](images/pw5.jpg)
 ---
-The options menu allows you to add a word to the current password, clear the generated password list and save the generated password list.
+The options menu allows you to clear the generated password list, save the generated password list and choose whether to close to the system tray or quit.
 
 ![New options menu](images/pw6.jpg)
 ---
