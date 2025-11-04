@@ -1,7 +1,10 @@
 # pw
 
-Random password generator written in C#
-Uses the RandomNumberGenerator Class from System.Security.Cryptography to generate random numbers
+**Random password generator written in C#
+Uses the RandomNumberGenerator Class from System.Security.Cryptography to generate random numbers**
+
+v0.0.12 can now check exisiting passwords against the haveibeenpwned database for breaches.
+
 ---
 Generate random character passwords with a length from 8-60
 
@@ -26,6 +29,12 @@ Left-click on password box to copy password to the clipboard.
 Right-click on password box (or the 3 dots button) to bring up a menu of previously generated passwords, selecting an item will copy the password to the clipboard. Here you can also add an extra word to the generated password (either characters or words depending on which is selected).
 
 ![Right-click for contextual menu](images/pw5.jpg)
+---
+Check passwords against the haveibeenpwned database for breaches.
+
+![haveibeenpwned](images/pw10.png)
+![haveibeenpwned](images/pw11.png)
+
 ---
 The options menu allows you to clear the generated password list, save the generated password list and choose whether to close to the system tray or quit.
 
