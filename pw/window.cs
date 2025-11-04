@@ -491,9 +491,9 @@ namespace pw
 
         private void clearPasswordListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = passwordsMenu.Items.Count; i > 5; i=i-1)
+            for (int i = passwordsMenu.Items.Count; i > 6; i=i-1)
             {
-                passwordsMenu.Items.RemoveAt(5);
+                passwordsMenu.Items.RemoveAt(6);
             } 
         }
 
