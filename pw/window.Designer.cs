@@ -55,6 +55,7 @@
             this.QuitToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.checkPwToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.specialCharsOptions = new System.Windows.Forms.Button();
@@ -70,10 +71,11 @@
             // 
             this.generateButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.generateButton.FlatAppearance.BorderSize = 0;
+            this.generateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generateButton.Image = global::pw.Properties.Resources.lock_add;
             this.generateButton.Location = new System.Drawing.Point(383, 61);
-            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(4);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(43, 42);
             this.generateButton.TabIndex = 0;
@@ -83,7 +85,7 @@
             // charactersTrackBar
             // 
             this.charactersTrackBar.Location = new System.Drawing.Point(84, -1);
-            this.charactersTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.charactersTrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.charactersTrackBar.Maximum = 60;
             this.charactersTrackBar.Minimum = 8;
             this.charactersTrackBar.Name = "charactersTrackBar";
@@ -123,7 +125,7 @@
             this.charactersRadio.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.charactersRadio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.charactersRadio.Location = new System.Drawing.Point(14, 7);
-            this.charactersRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.charactersRadio.Margin = new System.Windows.Forms.Padding(4);
             this.charactersRadio.Name = "charactersRadio";
             this.charactersRadio.Size = new System.Drawing.Size(79, 17);
             this.charactersRadio.TabIndex = 6;
@@ -139,7 +141,7 @@
             this.wordsRadio.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.wordsRadio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wordsRadio.Location = new System.Drawing.Point(14, 58);
-            this.wordsRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wordsRadio.Margin = new System.Windows.Forms.Padding(4);
             this.wordsRadio.Name = "wordsRadio";
             this.wordsRadio.Size = new System.Drawing.Size(59, 17);
             this.wordsRadio.TabIndex = 7;
@@ -155,7 +157,7 @@
             this.addSpecialCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.addSpecialCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSpecialCheckBox.Location = new System.Drawing.Point(97, 36);
-            this.addSpecialCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addSpecialCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.addSpecialCheckBox.Name = "addSpecialCheckBox";
             this.addSpecialCheckBox.Size = new System.Drawing.Size(119, 17);
             this.addSpecialCheckBox.TabIndex = 8;
@@ -171,7 +173,7 @@
             this.capitaliseCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.capitaliseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.capitaliseCheckBox.Location = new System.Drawing.Point(4, 4);
-            this.capitaliseCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.capitaliseCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.capitaliseCheckBox.Name = "capitaliseCheckBox";
             this.capitaliseCheckBox.Size = new System.Drawing.Size(76, 17);
             this.capitaliseCheckBox.TabIndex = 9;
@@ -187,7 +189,7 @@
             this.moreWordsCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.moreWordsCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moreWordsCheckBox.Location = new System.Drawing.Point(4, 24);
-            this.moreWordsCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moreWordsCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.moreWordsCheckBox.Name = "moreWordsCheckBox";
             this.moreWordsCheckBox.Size = new System.Drawing.Size(112, 17);
             this.moreWordsCheckBox.TabIndex = 12;
@@ -204,7 +206,7 @@
             this.randomCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.randomCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.randomCheckBox.Location = new System.Drawing.Point(84, 4);
-            this.randomCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.randomCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.randomCheckBox.Name = "randomCheckBox";
             this.randomCheckBox.Size = new System.Drawing.Size(80, 17);
             this.randomCheckBox.TabIndex = 13;
@@ -220,7 +222,7 @@
             this.wordsPanel.Controls.Add(this.moreWordsCheckBox);
             this.wordsPanel.Enabled = false;
             this.wordsPanel.Location = new System.Drawing.Point(93, 56);
-            this.wordsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wordsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.wordsPanel.Name = "wordsPanel";
             this.wordsPanel.Size = new System.Drawing.Size(282, 47);
             this.wordsPanel.TabIndex = 14;
@@ -233,7 +235,7 @@
             this.onlyTheseCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.onlyTheseCheckBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.onlyTheseCheckBox.Location = new System.Drawing.Point(118, 24);
-            this.onlyTheseCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.onlyTheseCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.onlyTheseCheckBox.Name = "onlyTheseCheckBox";
             this.onlyTheseCheckBox.Size = new System.Drawing.Size(81, 17);
             this.onlyTheseCheckBox.TabIndex = 15;
@@ -247,7 +249,7 @@
             this.wordFileDialogBTN.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.wordFileDialogBTN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wordFileDialogBTN.Location = new System.Drawing.Point(202, 23);
-            this.wordFileDialogBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wordFileDialogBTN.Margin = new System.Windows.Forms.Padding(4);
             this.wordFileDialogBTN.Name = "wordFileDialogBTN";
             this.wordFileDialogBTN.Size = new System.Drawing.Size(71, 20);
             this.wordFileDialogBTN.TabIndex = 14;
@@ -262,7 +264,7 @@
             this.randomPanel.Controls.Add(this.charactersTrackBar);
             this.randomPanel.Controls.Add(this.pwCharsLabel);
             this.randomPanel.Location = new System.Drawing.Point(93, 7);
-            this.randomPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.randomPanel.Margin = new System.Windows.Forms.Padding(4);
             this.randomPanel.Name = "randomPanel";
             this.randomPanel.Size = new System.Drawing.Size(333, 26);
             this.randomPanel.TabIndex = 15;
@@ -277,7 +279,7 @@
             this.passwordPanel.Controls.Add(this.passwordLabel);
             this.passwordPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.passwordPanel.Location = new System.Drawing.Point(0, 107);
-            this.passwordPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordPanel.Margin = new System.Windows.Forms.Padding(4);
             this.passwordPanel.Name = "passwordPanel";
             this.passwordPanel.Size = new System.Drawing.Size(439, 39);
             this.passwordPanel.TabIndex = 16;
@@ -289,23 +291,24 @@
             this.aboutMenuItem,
             this.addWordToolStripMenuItem,
             this.optionsToolStripMenuItem,
+            this.checkPwToolStripMenuItem,
             this.quitMenuItem,
             this.toolStripSeparator1});
             this.passwordsMenu.Name = "passwordsMenu";
-            this.passwordsMenu.Size = new System.Drawing.Size(157, 98);
+            this.passwordsMenu.Size = new System.Drawing.Size(238, 142);
             this.passwordsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.passwordsMenu_ItemClicked);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(237, 22);
             this.aboutMenuItem.Text = "About";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
             // addWordToolStripMenuItem
             // 
             this.addWordToolStripMenuItem.Name = "addWordToolStripMenuItem";
-            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.addWordToolStripMenuItem.Text = "Add Extra Word";
             this.addWordToolStripMenuItem.Click += new System.EventHandler(this.addWordToolStripMenuItem_Click_1);
             // 
@@ -317,7 +320,7 @@
             this.toolStripSeparator2,
             this.QuitToTrayToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // clearPasswordListToolStripMenuItem
@@ -349,14 +352,21 @@
             // quitMenuItem
             // 
             this.quitMenuItem.Name = "quitMenuItem";
-            this.quitMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.quitMenuItem.Size = new System.Drawing.Size(237, 22);
             this.quitMenuItem.Text = "Quit";
             this.quitMenuItem.Click += new System.EventHandler(this.quitMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(234, 6);
+            // 
+            // checkPwToolStripMenuItem
+            // 
+            this.checkPwToolStripMenuItem.Name = "checkPwToolStripMenuItem";
+            this.checkPwToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.checkPwToolStripMenuItem.Text = "Check Password for breaches...";
+            this.checkPwToolStripMenuItem.Click += new System.EventHandler(this.checkPwToolStripMenuItem_Click);
             // 
             // passwordLabel
             // 
@@ -387,7 +397,7 @@
             // 
             this.specialCharsOptions.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.specialCharsOptions.Location = new System.Drawing.Point(216, 33);
-            this.specialCharsOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specialCharsOptions.Margin = new System.Windows.Forms.Padding(4);
             this.specialCharsOptions.Name = "specialCharsOptions";
             this.specialCharsOptions.Size = new System.Drawing.Size(63, 22);
             this.specialCharsOptions.TabIndex = 17;
@@ -399,10 +409,11 @@
             // 
             this.menuButton.ContextMenuStrip = this.passwordsMenu;
             this.menuButton.FlatAppearance.BorderSize = 0;
+            this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menuButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuButton.Image = global::pw.Properties.Resources.menu_dots;
             this.menuButton.Location = new System.Drawing.Point(383, 33);
-            this.menuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menuButton.Margin = new System.Windows.Forms.Padding(4);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(43, 25);
             this.menuButton.TabIndex = 18;
@@ -430,7 +441,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "window";
@@ -485,6 +496,7 @@
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkPwToolStripMenuItem;
     }
 }
 

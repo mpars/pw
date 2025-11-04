@@ -83,6 +83,14 @@
     <Compile Include="character_options.Designer.cs">
       <DependentUpon>character_options.cs</DependentUpon>
     </Compile>
+    <Compile Include="HaveIBeenPwned.cs" />
+    <Compile Include="pwCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwCheck.Designer.cs">
+      <DependentUpon>pwCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="character_options.resx">
       <DependentUpon>character_options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwCheck.resx">
+      <DependentUpon>pwCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="window.resx">
       <DependentUpon>window.cs</DependentUpon>

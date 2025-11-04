@@ -20,7 +20,7 @@ namespace pw
 
     {
         // pw version
-        String versionString = "0.0.11";
+        String versionString = "0.0.12";
 
         // word lists
         List<string> wordList = new List<string>();
@@ -561,6 +561,15 @@ namespace pw
             }
             passwordsMenu.Items.Add(passwordLabel.Text);
 
+        }
+
+        private void checkPwToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<pwCheck>().Count() == 0)
+            {
+                Form f2 = new pwCheck();
+                f2.Show();
+            }
         }
     }
     }
